@@ -39,7 +39,7 @@ app.use("/api/v1/results", ResultRoutes);
 // Static Files
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-app.post("/", async (req, res) => {
+app.get("/", async (req, res) => {
   return res.status(200).send({
     message: "Hello World",
   });
