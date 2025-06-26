@@ -25,7 +25,6 @@ const MagazineRoutes = require("../modules/Magazine/MagazineRoutes");
 const SupervisorRoutes = require("../modules/Supervisors/SupervisorRoutes");
 const path = require("path");
 const ResultRoutes = require("../modules/Results/ResultRoutes");
-const { EncryptedEmail, Encrypt } = require("../services/Encryption");
 
 // app.use("/api/v1/teachers");
 app.use("/api/v1/students", StudentRoutes);
@@ -41,14 +40,8 @@ app.use("/api/v1/results", ResultRoutes);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.post("/", async (req, res) => {
-  const pass = await Encrypt("waelaltyeb123");
-  console.log("pass: ", pass);
-  const { encryptedData, iv } = await EncryptedEmail("waelaltyeb21@gmail.com");
   return res.status(200).send({
     message: "Hello World",
-    email: encryptedData,
-    iv: iv,
-    pass: pass,
   });
 });
 

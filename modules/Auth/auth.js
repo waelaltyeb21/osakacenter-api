@@ -49,11 +49,12 @@ const Login = async (req, res) => {
       .cookie("token", token, {
         httpOnly: true, // Prevents JS access (XSS protection)
         secure: true, // Set to true in production with HTTPS
-        maxAge: 60 * 60 * 1000, // 1 day in ms
+        maxAge: 60 * 60 * 1000, // 1 hour in ms
       })
       .cookie("supervisor", supervisor._id, {
         httpOnly: true, // Prevents JS access (XSS protection)
         secure: true, // Set to true in production with HTTPS
+        maxAge: 60 * 60 * 1000, // 1 hour in ms
       })
       .json({
         message: "Welcome Back",
