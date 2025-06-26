@@ -48,13 +48,13 @@ const Login = async (req, res) => {
       .status(200)
       .cookie("token", token, {
         httpOnly: true,
-        sameSite: "Lax",
+        sameSite: "none",
         secure: true,
         maxAge: 60 * 60 * 1000,
       })
       .cookie("supervisor", supervisor._id, {
         httpOnly: true,
-        sameSite: "Lax",
+        sameSite: "none",
         secure: true,
         maxAge: 60 * 60 * 1000,
       })
