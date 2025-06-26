@@ -6,14 +6,12 @@ require("dotenv").config();
 const limiter = require("../middlewares/RateLimiter");
 const { default: helmet } = require("helmet");
 const corsOptions = require("../config/Cors");
-const { isAuthenticated, isAuthorized } = require("../middlewares/Auth");
+const { isAuthenticated } = require("../middlewares/Auth");
 // Middleware
-// app.use(limiter);
 app.use(express.json());
 app.use(corsOptions);
 // protect against common attacks like XSS, clickjacking
 app.use(helmet());
-// app.use(isAuthenticated);
 
 // Routes
 const StudentRoutes = require("../modules/Student/StudentRoutes");
