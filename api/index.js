@@ -46,9 +46,9 @@ app.post("/", async (req, res) => {
 });
 
 // Not Found Endpoint
-app.use((err, req, res, next) =>
-  res.status(404).json({ message: "Not Found!", error: err })
-);
+// app.use((err, req, res, next) =>
+//   res.status(404).json({ message: "Not Found!", error: err })
+// );
 
 module.exports = app;
 // Connect To DataBase And Start The Server
