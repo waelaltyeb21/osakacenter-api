@@ -8,6 +8,7 @@ const {
 } = require("../../lib/CrudOperations");
 const MagazineModel = require("./MagazineModel");
 
+// Get All Magazines
 const GetMagazines = async (req, res) => {
   try {
     const magazines = await GetAllDocs(MagazineModel);
@@ -25,6 +26,7 @@ const GetMagazines = async (req, res) => {
   }
 };
 
+// Get Single Magazine
 const GetMagazine = async (req, res) => {
   const { id } = req.params;
   try {
@@ -40,6 +42,7 @@ const GetMagazine = async (req, res) => {
   }
 };
 
+// Download Magazine
 const DownloadMagazine = async (req, res) => {
   const { id } = req.params;
   try {
@@ -71,6 +74,7 @@ const DownloadMagazine = async (req, res) => {
   }
 };
 
+// Create New Magazine
 const CreateMagazine = async (req, res) => {
   const { description, version } = req.body;
   try {
@@ -101,6 +105,7 @@ const CreateMagazine = async (req, res) => {
   }
 };
 
+// Update Magazine
 const UpdateMagazine = async (req, res) => {
   const { id } = req.params;
   const { description, version } = req.body;
@@ -124,6 +129,7 @@ const UpdateMagazine = async (req, res) => {
   }
 };
 
+// Delete Magazine
 const DeleteMagazine = async (req, res) => {
   const { id } = req.params;
   try {
