@@ -2,7 +2,6 @@ const { UpdateDoc, GetDocById } = require("../../lib/CrudOperations");
 const {
   Compare,
   DecryptedEmail,
-  EncryptedEmail,
   Encrypt,
 } = require("../../services/Encryption");
 const { SendMail } = require("../../services/SendMail");
@@ -48,13 +47,13 @@ const Login = async (req, res) => {
     return res
       .status(200)
       .cookie("token", token, {
-        // httpOnly: true, // Prevents JS access (XSS protection)
-        secure: false, // Set to true in production with HTTPS
+        httpOnly: true, // Prevents JS access (XSS protection)
+        secure: true, // Set to true in production with HTTPS
         maxAge: 60 * 60 * 1000, // 1 day in ms
       })
       .cookie("supervisor", supervisor._id, {
-        // httpOnly: true, // Prevents JS access (XSS protection)
-        secure: false, // Set to true in production with HTTPS
+        httpOnly: true, // Prevents JS access (XSS protection)
+        secure: true, // Set to true in production with HTTPS
       })
       .json({
         message: "Welcome Back",
