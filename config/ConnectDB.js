@@ -4,6 +4,7 @@ const corsOptions = require("./Cors");
 const PORT = process.env.PORT || 5000;
 
 app.use(corsOptions);
+
 const EstablishConnection = async () => {
   try {
     const connect = await mongoose.connect(process.env.DB_URI, {
