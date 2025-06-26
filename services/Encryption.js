@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const crypto = require("crypto");
 
 const algorithm = "aes-256-cbc";
-const password = process.env.ENCRYPTION_KEY || "supersecret";
+const password = process.env.ENCRYPTION_KEY;
 const key = crypto.createHash("sha256").update(password).digest();
 const ivLength = 16;
 
@@ -37,7 +37,7 @@ const DecryptedEmail = async (data, ivHex) => {
   const decipher = crypto.createDecipheriv(algorithm, key, iv);
   let decrypted = decipher.update(data, "hex", "utf-8");
   decrypted += decipher.final("utf-8");
-  
+
   console.log("decrypted: ", decrypted);
   return decrypted;
 };
