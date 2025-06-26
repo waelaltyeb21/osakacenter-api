@@ -47,12 +47,12 @@ const Login = async (req, res) => {
     return res
       .status(200)
       .cookie("token", token, {
-        httpOnly: true, // Prevents JS access (XSS protection)
+        // httpOnly: true,
         secure: true, // Set to true in production with HTTPS
         maxAge: 60 * 60 * 1000, // 1 hour in ms
       })
       .cookie("supervisor", supervisor._id, {
-        httpOnly: true, // Prevents JS access (XSS protection)
+        // httpOnly: true, // Prevents JS access (XSS protection)
         secure: true, // Set to true in production with HTTPS
         maxAge: 60 * 60 * 1000, // 1 hour in ms
       })
