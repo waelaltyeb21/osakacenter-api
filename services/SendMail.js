@@ -1,4 +1,3 @@
-const { text } = require("express");
 const nodemailer = require("nodemailer");
 
 // Transport
@@ -12,7 +11,6 @@ const Transporter = nodemailer.createTransport({
 
 // Send Mail
 const SendMail = async (to, subject, TextToSend) => {
-  console.log("to: ", to, " subject: ", subject, " TextToSend: ", TextToSend);
   // Mail Options
   const mailOptions = {
     from: process.env.EMAIL,
@@ -24,14 +22,13 @@ const SendMail = async (to, subject, TextToSend) => {
   // Send Mail
   const response = Transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.log("Error: ", error);
+      // console.log("Error: ", error);
       return null;
     } else {
-      console.log("Response: ", info.response);
+      // console.log("Response: ", info.response);
       return info.response ? true : false;
     }
   });
-  console.log("response: ", response);
   return response;
 };
 

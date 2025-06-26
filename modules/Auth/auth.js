@@ -14,7 +14,7 @@ const Login = async (req, res) => {
   const { name, email, password } = req.body;
   try {
     const supervisor = await SupervisorModel.findOne({ name });
-    console.log("supervisor: ", supervisor);
+    // console.log("supervisor: ", supervisor);
     // If No Supervisor Found With The Provided Email
     if (!supervisor)
       return res.status(400).json({ message: "Wrong Email Or Password" });
@@ -103,7 +103,7 @@ const GetOTP = async (req, res) => {
       `
     );
     // Faild To Send OTP
-    console.log("response: ", response ? "Success" : "Faild To Send OTP");
+    // console.log("response: ", response ? "Success" : "Faild To Send OTP");
     // Return Response To Client
     return res.status(200).json({
       message: "OTP Sent To Your Email",
@@ -116,16 +116,16 @@ const GetOTP = async (req, res) => {
 
 const CheckOTP = async (req, res) => {
   const { email, otp } = req.body;
-  console.log("email: ", email, "otp: ", otp);
+  // console.log("email: ", email, "otp: ", otp);
   try {
     const OTP = OTPs.find((OTP) => OTP.email === email && OTP.otp === otp);
 
-    console.log("OTP: ", OTP.otp, " otp: ", otp);
+    // console.log("OTP: ", OTP.otp, " otp: ", otp);
 
     // Check If OTP Is Valid
     // OTP is valid for 5 minute
     const isInValid = OTP && OTP.createdAt < Date.now() - 60000 * 5;
-    console.log("isInValid: ", isInValid);
+    // console.log("isInValid: ", isInValid);
     // Remove Expired OTP
     OTPs.filter((OTP) => OTP.createdAt > Date.now() - 60000 * 5);
 

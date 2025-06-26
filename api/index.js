@@ -3,6 +3,7 @@ const app = express();
 // Enviroment Variables
 require("dotenv").config();
 
+const path = require("path");
 const limiter = require("../middlewares/RateLimiter");
 const { default: helmet } = require("helmet");
 const corsOptions = require("../config/Cors");
@@ -21,7 +22,6 @@ const Auth = require("../modules/Auth/authRoutes");
 const ArticlesRoutes = require("../modules/Articles/ArticleRoutes");
 const MagazineRoutes = require("../modules/Magazine/MagazineRoutes");
 const SupervisorRoutes = require("../modules/Supervisors/SupervisorRoutes");
-const path = require("path");
 const ResultRoutes = require("../modules/Results/ResultRoutes");
 
 // app.use("/api/v1/teachers");
