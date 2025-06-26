@@ -1,5 +1,5 @@
 const { default: mongoose } = require("mongoose");
-const app = require("..");
+const app = require("../api/index");
 const corsOptions = require("./Cors");
 const PORT = process.env.PORT || 5000;
 
